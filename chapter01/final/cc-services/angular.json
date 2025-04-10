@@ -124,7 +124,6 @@
       }
     }
   },
-  "defaultProject": "cc-services",
   "cli": {
     "analytics": "b457b30e-5a91-4ea9-8b02-5da16a291ab9"
   }
