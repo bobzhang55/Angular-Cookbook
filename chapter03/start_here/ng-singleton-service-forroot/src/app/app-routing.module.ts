@@ -7,11 +7,11 @@ const routes: Routes = [{
   redirectTo: 'versioning'
 }, {
   path: 'versioning',
-  loadChildren: () => import('./versioning/versioning.module').then(m =>m.VersioningModule)
+  loadChildren: () => import('./versioning/versioning.module').then(m => m.VersioningModule)
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
