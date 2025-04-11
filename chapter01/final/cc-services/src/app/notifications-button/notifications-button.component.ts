@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class NotificationsButtonComponent implements OnInit {
   notificationsCount$: Observable<number>;
 
-  constructor(private notificationsService: NotificationsService) {}
+  constructor(private notificationsService: NotificationsService) { }
 
   ngOnInit(): void {
     this.notificationsCount$ = this.notificationsService.count$;
