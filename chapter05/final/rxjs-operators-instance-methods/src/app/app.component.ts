@@ -16,17 +16,18 @@ export class AppComponent {
   ngOnInit() {}
 
   startStream() {
-    const streamSource = interval(1500);
-    const cartoonStreamSource = interval(1000).pipe(
+
+    const inputStreamData = interval(1500).pipe(
+      map((output) => output % this.inputStreamData.length),
+      map((index) => this.inputStreamData[index])
+    );
+
+    const cartoonStreamSource = interval(5000).pipe(
       map((output) => output % this.cartoonsStreamData.length),
       map((index) => this.cartoonsStreamData[index])
     );
-    this.subscription = streamSource
-      .pipe(
-        map((output) => output % this.inputStreamData.length),
-        map((index) => this.inputStreamData[index]),
-        merge(cartoonStreamSource)
-      )
+    // Merging the two streams
+    this.subscription = inputStreamData.pipe(merge(cartoonStreamSource))
       .subscribe((element) => {
         this.outputStreamData.push(element);
       });
