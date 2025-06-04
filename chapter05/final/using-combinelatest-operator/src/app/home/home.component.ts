@@ -31,10 +31,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.boxForm.get('size').setValue(this.sizeOptions[0]);
+    this.boxForm.get('size').setValue(this.sizeOptions[0].toString());
     this.boxForm.get('backgroundColor').setValue(this.colorOptions[0]);
     this.boxForm.get('textColor').setValue(this.colorOptions[1]);
-    this.boxForm.get('borderRadius').setValue(this.borderRadiusOptions[0]);
+    this.boxForm.get('borderRadius').setValue(this.borderRadiusOptions[0].toString());
     this.listenToInputChanges();
   }
 
